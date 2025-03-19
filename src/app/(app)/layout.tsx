@@ -1,11 +1,13 @@
 import { ReactNode } from "react";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-1 flex-col">
-      {/* SideBar */}
-      <div className="flex flex-1 flex-col">{children}</div>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <div className="flex flex-1 flex-col"> {children}</div>
+    </SidebarProvider>
   );
 };
 
