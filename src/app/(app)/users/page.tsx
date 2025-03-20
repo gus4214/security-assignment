@@ -1,7 +1,7 @@
-import React from "react";
+import Users from "@/containers/users";
 
 const UserListPage = () => {
-  return <div>유저리스트</div>;
+  return <Users />;
 };
 
 export default UserListPage;
