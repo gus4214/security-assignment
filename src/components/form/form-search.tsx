@@ -4,6 +4,7 @@ import FormInput from "@/components/form/form-input";
 import FormSelect from "@/components/form/form-select";
 import { Form } from "@/components/ui/form";
 import { USER_FILTER_OPTIONS } from "@/config/filters";
+import { Search } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 const FormSearch = () => {
@@ -26,6 +27,7 @@ const FormSearch = () => {
           control={form.control}
           name="search"
           inputProps={{ placeholder: "Search", className: "w-72" }}
+          endIcon={<Search className="opacity-50 size-4" />}
         />
       </div>
     </Form>

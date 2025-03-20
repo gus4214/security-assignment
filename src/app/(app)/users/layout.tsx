@@ -1,12 +1,11 @@
-import AppHeader from "@/components/app-header";
 import AppMain from "@/components/app-main";
-import React, { ReactNode } from "react";
+import UsersHeader from "@/containers/users/components/users-header";
+import { ReactNode } from "react";
 
-const PAGE_TITLE = "User List";
 const UserListPageLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <AppHeader title={PAGE_TITLE} menu={<span>김수정 Prime User</span>} />
+      <UsersHeader />
       <AppMain>{children}</AppMain>
     </>
   );
