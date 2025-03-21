@@ -10,12 +10,18 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { MENU_ITEMS } from "@/config/menu";
+import { useAuth } from "@/hooks/use-auth";
+import { usePermission } from "@/hooks/use-permission";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { user } = useAuth();
+  const { hasPermission } = usePermission();
+
+  const isActive = user && hasPermission("canAccessMenu");
 
   return (
     <Sidebar>
@@ -25,16 +31,15 @@ export function AppSidebar() {
           {MENU_ITEMS.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton
-                asChild
+                disabled={!isActive}
+                onClick={() => router.push(item.href)}
                 className={cn(
                   pathname === item.href &&
                     "bg-primary hover:bg-primary text-muted hover:text-muted"
                 )}
               >
-                <Link key={item.href} href={item.href}>
-                  {item.icon}
-                  {item.title}
-                </Link>
+                {item.icon}
+                {item.title}
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

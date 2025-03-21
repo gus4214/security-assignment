@@ -1,3 +1,5 @@
+"use client";
+
 import userList from "@/data/user-list.json";
 import { userAtom } from "@/store/auth";
 import { useAtom } from "jotai";

@@ -1,11 +1,31 @@
+"use client";
+
+import AppHeader from "@/components/app-header";
 import AppMain from "@/components/app-main";
-import UsersHeader from "@/containers/users/components/users-header";
+import { useAuth } from "@/hooks/use-auth";
 import { ReactNode } from "react";
 
+const PAGE_TITLE = "User List";
+
 const UserListPageLayout = ({ children }: { children: ReactNode }) => {
+  const { user } = useAuth();
+
   return (
     <>
-      <UsersHeader />
+      <AppHeader
+        title={PAGE_TITLE}
+        user={user!}
+        menu={
+          <div className="flex items-center space-x-2">
+            <span className="text-blue-600 font-semibold text-sm">
+              {user?.userName}
+            </span>
+            <span className="text-blue-600 font-semibold text-sm">
+              {user?.userRole}
+            </span>
+          </div>
+        }
+      />
       <AppMain>{children}</AppMain>
     </>
   );
