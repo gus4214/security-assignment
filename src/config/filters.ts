@@ -13,3 +13,16 @@ export const USER_ROLES_CHECKBOX_OPTIONS: FilterOptions[] = [
   { value: "RegularUser", label: "Regular User" },
   { value: "Viewer", label: "Viewer" },
 ];
+
+export const TASK_FILTER_OPTIONS: FilterOptions[] = [
+  { value: "taskName", label: "Task Name" },
+  { value: "reporter", label: "Reporter" },
+  { value: "taskDescription", label: "Description" },
+  { value: "assignee", label: "담장자 (Assignee)" },
+];
+
+export const TASK_TYPES_CHECKBOX_OPTIONS: FilterOptions[] = [
+  { value: "All", label: "All" },
+  { value: "reporter", label: "Reporter" },
+  { value: "taskDescription", label: "Description" },
+];

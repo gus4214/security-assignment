@@ -7,12 +7,12 @@ import {
 import userList from "@/data/user-list.json";
 import { useAuth } from "@/hooks/use-auth";
 import { useListFilter } from "@/hooks/use-list-filter";
-import { FilterForm, UserFilter, UserRolesCheckForm } from "@/types/filter";
+import { FilterForm, UserFilterType, UserRolesCheckForm } from "@/types/filter";
 import { User, UserRole } from "@/types/user";
 import { useMemo } from "react";
 import { useForm } from "react-hook-form";
-import UserListTable from "./user-list-table"; // 사용자 테이블 컴포넌트
-import UsersFilter from "./users-filter"; // 검색/필터 폼 컴포넌트
+import UserListTable from "./user-list-table";
+import UsersFilter from "./users-filter";
 
 const Users = () => {
   const { user: currentUser } = useAuth();
@@ -38,7 +38,7 @@ const Users = () => {
   // 2. 검색 필터를 위한 폼
   const userFilterForm = useForm<FilterForm>({
     defaultValues: {
-      filter: USER_FILTER_OPTIONS[0].value as UserFilter,
+      filter: USER_FILTER_OPTIONS[0].value as UserFilterType,
       search: "",
     },
   });
@@ -49,7 +49,7 @@ const Users = () => {
   // 3. 검색어에 따른 필터링
   const searchFilteredUsers = useListFilter<User>(
     roleFilteredUsers,
-    filterKey as UserFilter,
+    filterKey as UserFilterType,
     searchValue
   );
 

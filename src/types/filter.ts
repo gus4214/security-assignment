@@ -1,3 +1,4 @@
+import { Task } from "@/types/task";
 import { User, UserRole } from "@/types/user";
 
 export interface FilterOptions {
@@ -5,9 +6,14 @@ export interface FilterOptions {
   label: string;
 }
 
-export type UserFilter = keyof Pick<
+export type UserFilterType = keyof Pick<
   User,
   "userEmail" | "userPhone" | "userName"
+>;
+
+export type TaskFilterType = keyof Pick<
+  Task,
+  "taskName" | "reporter" | "taskDescription" | "assignee"
 >;
 
 export interface FilterForm {
@@ -17,4 +23,8 @@ export interface FilterForm {
 
 export interface UserRolesCheckForm {
   userRoles: UserRole[];
+}
+
+export interface TaskTypesCheckForm {
+  taskType: string[];
 }

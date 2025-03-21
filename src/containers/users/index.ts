@@ -1,3 +1,3 @@
-import users from "./components/users";
+import Users from "@/containers/users/components/users";
 
-export default users;
+export default Users;

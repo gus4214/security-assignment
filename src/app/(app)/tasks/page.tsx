@@ -1,7 +1,7 @@
-import React from "react";
+import Tasks from "@/containers/tasks";
 
 const TaskListPage = () => {
-  return <div>태스크리스트</div>;
+  return <Tasks />;
 };
 
 export default TaskListPage;
